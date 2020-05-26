@@ -31,7 +31,7 @@ class UTTEnv(gym.Env):
         # The first 81 cells will represent the last move made,
         # next 81 will be the player board
         # the next 81 will represent the opponent board
-        self.observation_space = spaces.MultiBinary(3 * (SIZE**4))
+        self.observation_space = spaces.Discrete(3 * (SIZE**4))
         self.player_chars = ['X', 'O']
         self.player_colors = [(35, 160, 255), (255, 180, 20)]
         os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
@@ -40,7 +40,7 @@ class UTTEnv(gym.Env):
 
     def step(self, move):
         """
-        This method steps the game forward one step and
+        This method steps the game forward one step and 
         shoots a bubble at the given angle.
         Parameters
         ----------
